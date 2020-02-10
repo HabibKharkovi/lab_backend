@@ -1,60 +1,60 @@
-const UsersModel = require('./../models/UsersModel');
+const AdminModel = require('./../models/adminModel');
 
 
 // Route Handlers
 
-// get all users
+// get all admins
 exports.get_all = async (req, res) => {
-    const users = await UsersModel.find();
+    const admins = await AdminModel.find();
     res.status(200).json({
         status: "success",
-        result: users.length,
+        result: admins.length,
         data: {
-            users
+            admins
         }
     })
 }
 
-// add new user
+// add new admin
 exports.add_new = async (req, res) => {
-    const user = await UsersModel.create(req.body);
+    const admin = await AdminModel.create(req.body);
     res.status(201).json({
         status: 'success',
         data: {
-            user
+            admin
         }
     });
 }
 
-// get user
+// get admin
 exports.get_one = async (req, res) => {
-    const user = await UsersModel.findById(req.params.id);
+    const admin = await AdminModel.findById(req.params.id);
     res.status(200).json({
         status: "success", 
         data: {
-            user
+            admin
         }
     });
 }
 
-// update user
+// update admin
 exports._update = async (req, res) => {
-    const user = await UsersModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const admin = await AdminModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.status(200).json({
         status: "success", 
         data: {
-            user
+            admin
         }
     });
 }
 
-// delete user
+// delete admin
 exports._delete = async (req, res) => {
-    const user = await UsersModel.findByIdAndRemove(req.params.id);
+    const admin = await AdminModel.findByIdAndRemove(req.params.id);
     res.status(204).json({
         status: "success", 
         data: {
-            user: null
+            admin: null
         }
     });
 }

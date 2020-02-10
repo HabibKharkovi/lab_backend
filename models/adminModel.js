@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-// create Users schema
-const UsersSchema = new mongoose.Schema({
+// create Admins schema
+const AdminsSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "Name is required"]
@@ -22,6 +22,6 @@ const UsersSchema = new mongoose.Schema({
 });
 
 // create patient details model
-const UsersModel = new mongoose.model('UsersModel', UsersSchema);
+const AdminsModel = new mongoose.model('AdminsModel', AdminsSchema);
 
-module.exports = UsersModel;
+module.exports = AdminsModel;

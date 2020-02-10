@@ -6,7 +6,7 @@ const {
     get_one,
     _update,
     _delete
-} = require('./../controllers/usersController');
+} = require('./../controllers/adminController');
 
 
 // Routers
