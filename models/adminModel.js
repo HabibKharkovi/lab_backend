@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const AdminsSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Name is required"]
+        required: [true, "Name is required"],
+        trim: true,
+        minlength: 3,
+        maxlength: 40,
     },
     email: {
         type: String,
@@ -13,11 +16,15 @@ const AdminsSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, "Password is required"]
+        required: [true, "Password is required"],
+        min: 6
     },
     conform_password: {
         type: String,
-        required: [true, "Conform Password is required"]
+        required: [true, "Conform Password is required"],
+        validate: function(val){
+            return val === this.password;
+        }
     }
 });
 
