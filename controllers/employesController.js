@@ -1,60 +1,60 @@
-const UsersModel = require('./../models/UsersModel');
+const EmployesModel = require('./../models/employesModel');
 
 
 // Route Handlers
 
-// get all users
+// get all employes
 exports.get_all = async (req, res) => {
-    const users = await UsersModel.find();
+    const employes = await EmployesModel.find();
     res.status(200).json({
         status: "success",
-        result: users.length,
+        result: employes.length,
         data: {
-            users
+            employes
         }
     })
 }
 
-// add new user
+// add new employe
 exports.add_new = async (req, res) => {
-    const user = await UsersModel.create(req.body);
+    const employe = await EmployesModel.create(req.body);
     res.status(201).json({
         status: 'success',
         data: {
-            user
+            employe
         }
     });
 }
 
-// get user
+// get employe
 exports.get_one = async (req, res) => {
-    const user = await UsersModel.findById(req.params.id);
+    const employe = await EmployesModel.findById(req.params.id);
     res.status(200).json({
         status: "success", 
         data: {
-            user
+            employe
         }
     });
 }
 
-// update user
+// update employe
 exports._update = async (req, res) => {
-    const user = await UsersModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const employe = await EmployesModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.status(200).json({
         status: "success", 
         data: {
-            user
+            employe
         }
     });
 }
 
-// delete user
+// delete employe
 exports._delete = async (req, res) => {
-    const user = await UsersModel.findByIdAndRemove(req.params.id);
+    const employe = await EmployesModel.findByIdAndRemove(req.params.id);
     res.status(204).json({
         status: "success", 
         data: {
-            user: null
+            employe: null
         }
     });
 }
