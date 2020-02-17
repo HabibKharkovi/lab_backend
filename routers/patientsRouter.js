@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { protect } = require('./../controllers/adminController');
 const {
     get_all,
     add_new,
@@ -12,7 +13,7 @@ const {
 // Routers
 router
     .route('/')
-    .get(get_all)
+    .get(protect, get_all)
     .post(add_new);
 router
     .route('/:id')

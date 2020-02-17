@@ -54,6 +54,24 @@ exports.login = async (req, res, next) => {
 
 }
 
+// portect route
+
+exports.protect = async (req, res, next) => {
+    let token;
+    if(req.headers.authorization && req.headers.authorization.startsWith('habib')){
+        token = req.headers.authorization.split(' ')[1];
+    }
+
+    console.log(token)
+
+    if(!token){
+        return next(console.log('You are not logged in! Please log in to get access'))
+    }
+
+    next();
+        
+}
+
 
 
 

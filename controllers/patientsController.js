@@ -15,6 +15,7 @@ exports.get_all = async (req, res) => {
     })
 }
 
+
 // add new patient
 exports.add_new = async (req, res) => {
     const patient = await PatientsModel.create(req.body);
