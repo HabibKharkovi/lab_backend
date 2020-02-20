@@ -24,13 +24,11 @@ const PatientsSchema = new mongoose.Schema({
     },
     patient_id: {
         type: String,
-        default: generator.patient_id_generator(),
-        unique: true
+        default: generator.patient_id_generator()
     },
     mr_no: {
         type: String,
-        default: generator.mr_no_generator(),
-        unique: true
+        default: generator.mr_no_generator()
     },
     password: {
         type: String,
